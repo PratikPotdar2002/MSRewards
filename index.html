@@ -62,16 +62,17 @@
     function performSearch() {
       if (currentIndex < searchTerms.length) {
         const searchTerm = searchTerms[currentIndex];
-        let newTab = window.open(`https://www.bing.com/search?q=${encodeURIComponent(searchTerm)}`, '_blank');
+        let newTab = `https://www.bing.com/search?q=${encodeURIComponent(searchTerm)}`;
         if(isMobile()){
           console.log("mobile");
-          newTab=`https://www.bing.com/search?q=${encodeURIComponent(searchTerm)}&setmkt=en-IN&PC=EMMX01&form=LBT003&scope=web`
+          newTab="https://www.bing.com/search?q="+encodeURIComponent(searchTerm)+"&setmkt=en-IN&PC=EMMX01&form=LBT003&scope=web"
         }
+        let nt=window.open(newTab,'_blank');
         currentIndex++;
 
         // Close the tab after the specified delay (3 seconds) asynchronously
         setTimeout(() => {
-          newTab.close();
+          nt.close();
         }, closeDelay);
 
         // Continue with the next search without waiting for the tab to close
