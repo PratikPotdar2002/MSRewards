@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="/styles.css">
 
 <body>
-  <h1>🎊Welcome to Our Website🎊</h1>~
+  <h1>🎊Welcome to Our Website🎊</h1>
   <button id="btn" onclick="performSearch()">Start</button>
   <script>
     const searchTerms = [
@@ -58,7 +58,7 @@
 
     function performSearch() {
       if (currentIndex < searchTerms.length) {
-        let newTab = window.open(`https://www.bing.com/search?q=${encodeURIComponent(searchTerm)}`, '_blank');
+        let newTab = window.open(`https://www.bing.com/search?q=${encodeURIComponent(searchTerms[currentIndex])}`, '_blank');
         if(isMobile()){
           newTab=`https://www.bing.com/search?q=${encodeURIComponent(searchTerm)}&setmkt=en-IN&PC=EMMX01&form=LBT003&scope=web`
         }
