@@ -58,11 +58,11 @@
 
     function performSearch() {
       if (currentIndex < searchTerms.length) {
-        let newTab = window.open(`https://www.bing.com/search?q=${encodeURIComponent(searchTerms[currentIndex])}`, '_blank');
+        const searchTerm = searchTerms[currentIndex];
+        let newTab = window.open(`https://www.bing.com/search?q=${encodeURIComponent(searchTerm)}`, '_blank');
         if(isMobile()){
           newTab=`https://www.bing.com/search?q=${encodeURIComponent(searchTerm)}&setmkt=en-IN&PC=EMMX01&form=LBT003&scope=web`
         }
-        const searchTerm = searchTerms[currentIndex];
         currentIndex++;
 
         // Close the tab after the specified delay (3 seconds) asynchronously
