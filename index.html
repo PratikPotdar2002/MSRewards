@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Word Searches</title>
+</head>
+<link rel="stylesheet" href="/styles.css">
+<body>
+  <h1>🎊Welcome to Our Website🎊</h1>
+  <button id="btn" onclick="performSearch()">Start</button>
+  <script>
+    const searchTerms = [
+  "Apple",
+  "Banana",
+  "Cat",
+  "Dog",
+  "Elephant",
+  "Flower",
+  "Guitar",
+  "House",
+  "Ice Cream",
+  "Jump",
+  "Kangaroo",
+  "Lemon",
+  "Moon",
+  "Notebook",
+  "Octopus",
+  "Pizza",
+  "Rainbow",
+  "Sunshine",
+  "Tree",
+  "Umbrella",
+  "Violin",
+  "Watermelon",
+  "Xylophone",
+  "Yogurt",
+  "Zebra",
+  "Butterfly",
+  "Dolphin",
+  "Fireworks",
+  "Giraffe",
+  "Hammer"
+];
+
+// Access individual words by index, e.g., thirtyWords[0] for "Apple"
+
+
+    const pageInterval = 2000; // 2 seconds between each search
+    const closeDelay = 1000; // 3 seconds before closing each tab
+    let currentIndex = 0;
+    const btn = document.getElementById("btn");
+
+    function performSearch() {
+      if (currentIndex < searchTerms.length) {
+        const searchTerm = searchTerms[currentIndex];
+        const newTab = window.open(`https://www.bing.com/search?q=${encodeURIComponent(searchTerm)}`, '_blank');
+        currentIndex++;
+
+        // Close the tab after the specified delay (3 seconds) asynchronously
+        setTimeout(() => {
+          newTab.close();
+        }, closeDelay);
+
+        // Continue with the next search without waiting for the tab to close
+        setTimeout(performSearch, pageInterval);
+      }
+    }
+    // btn.addEventListener("click",performSearch());
+  </script>
+</body>
+</html>
