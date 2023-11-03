@@ -52,8 +52,11 @@
     const btn = document.getElementById("btn");
 
     function isMobile() {
-          const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
-          return regex.test(navigator.userAgent);
+          // const regex = '/Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i';
+          const temp = navigator.userAgent;
+          console.log(temp);
+          console.log('isMobile')
+          return temp.includes("Android");
         }
 
     function performSearch() {
@@ -61,6 +64,7 @@
         const searchTerm = searchTerms[currentIndex];
         let newTab = window.open(`https://www.bing.com/search?q=${encodeURIComponent(searchTerm)}`, '_blank');
         if(isMobile()){
+          console.log("mobile");
           newTab=`https://www.bing.com/search?q=${encodeURIComponent(searchTerm)}&setmkt=en-IN&PC=EMMX01&form=LBT003&scope=web`
         }
         currentIndex++;
