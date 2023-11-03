@@ -1,47 +1,49 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Random Word Searches</title>
 </head>
 <link rel="stylesheet" href="/styles.css">
+
 <body>
-  <h1>🎊Welcome to Our Website🎊</h1>
+  <h1>🎊Welcome to Our Website🎊</h1>~
   <button id="btn" onclick="performSearch()">Start</button>
   <script>
     const searchTerms = [
-  "Apple",
-  "Banana",
-  "Cat",
-  "Dog",
-  "Elephant",
-  "Flower",
-  "Guitar",
-  "House",
-  "Ice Cream",
-  "Jump",
-  "Kangaroo",
-  "Lemon",
-  "Moon",
-  "Notebook",
-  "Octopus",
-  "Pizza",
-  "Rainbow",
-  "Sunshine",
-  "Tree",
-  "Umbrella",
-  "Violin",
-  "Watermelon",
-  "Xylophone",
-  "Yogurt",
-  "Zebra",
-  "Butterfly",
-  "Dolphin",
-  "Fireworks",
-  "Giraffe",
-  "Hammer"
-];
+      "Apple",
+      "Banana",
+      "Cat",
+      "Dog",
+      "Elephant",
+      "Flower",
+      "Guitar",
+      "House",
+      "Ice Cream",
+      "Jump",
+      "Kangaroo",
+      "Lemon",
+      "Moon",
+      "Notebook",
+      "Octopus",
+      "Pizza",
+      "Rainbow",
+      "Sunshine",
+      "Tree",
+      "Umbrella",
+      "Violin",
+      "Watermelon",
+      "Xylophone",
+      "Yogurt",
+      "Zebra",
+      "Butterfly",
+      "Dolphin",
+      "Fireworks",
+      "Giraffe",
+      "Hammer"
+    ];
 
-// Access individual words by index, e.g., thirtyWords[0] for "Apple"
+    // Access individual words by index, e.g., thirtyWords[0] for "Apple"
 
 
     const pageInterval = 2000; // 2 seconds between each search
@@ -49,10 +51,18 @@
     let currentIndex = 0;
     const btn = document.getElementById("btn");
 
+    function isMobile() {
+          const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+          return regex.test(navigator.userAgent);
+        }
+
     function performSearch() {
       if (currentIndex < searchTerms.length) {
+        let newTab = window.open(`https://www.bing.com/search?q=${encodeURIComponent(searchTerm)}`, '_blank');
+        if(isMobile()){
+          newTab=`https://www.bing.com/search?q=${encodeURIComponent(searchTerm)}&setmkt=en-IN&PC=EMMX01&form=LBT003&scope=web`
+        }
         const searchTerm = searchTerms[currentIndex];
-        const newTab = window.open(`https://www.bing.com/search?q=${encodeURIComponent(searchTerm)}`, '_blank');
         currentIndex++;
 
         // Close the tab after the specified delay (3 seconds) asynchronously
@@ -67,4 +77,5 @@
     // btn.addEventListener("click",performSearch());
   </script>
 </body>
+
 </html>
